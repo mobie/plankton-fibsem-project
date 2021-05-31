@@ -26,11 +26,41 @@ def copy_data(path, ds_name, name):
 
 def add_data(path, ds_name, name, menu):
     tmp_path, resolution, vrange = copy_data(path, ds_name, name)
+    view = mobie.metadata.get_default_view('image', name, contrastLimits=vrange)
     mobie.add_image(tmp_path, "data", "./data", ds_name,
                     image_name=name, resolution=resolution,
                     scale_factors=scale_factors, chunks=chunks,
                     menu_name=menu, target='local',
-                    max_jobs=16)
+                    max_jobs=16, view=view)
+
+
+def copy_segmentations(paths, ds_name, seg_name):
+    data, header = nrrd.read(paths[0], index_order='C')
+    print(np.unique(data))
+    resolution = np.diag(header['space directions'])[::-1] / 1000.
+    for ii, path in enumerate(paths[1:], 2):
+        this_data, _ = nrrd.read(paths[0], index_order='C')
+        print(np.unique(this_data))
+        assert this_data.shape == data.shape
+        data[this_data > 0] = ii
+    tmp_path = f'./tmp_data/{ds_name}'
+    os.makedirs(tmp_path, exist_ok=True)
+    tmp_path = os.path.join(tmp_path, seg_name + '.h5')
+    if os.path.exists(tmp_path):
+        return tmp_path, resolution.tolist()
+    with h5py.File(tmp_path, 'w') as f:
+        f.create_dataset('data', data=data, chunks=chunks)
+    return tmp_path, resolution
+
+
+def add_segmentations(paths, class_names, ds_name, seg_name, menu):
+    assert len(paths) == len(class_names)
+    tmp_path, resolution = copy_segmentations(paths,  ds_name, seg_name)
+    mobie.add_segmentations(tmp_path, 'data', './data', ds_name,
+                            segmentation_name=seg_name, resolution=resolution,
+                            scale_factors=scale_factors, chunks=chunks,
+                            menu_name=menu, target='local', max_jobs=16)
+    # TODO add semeantic column
 
 
 def create_dataset(name):
@@ -46,7 +76,7 @@ def create_dataset(name):
 
         # add the cell mask
         seg_path = os.path.join(root, name, f'Data{cell_id}/Segmented-files/Cell{cell_id}.nrrd')
-        seg_name = f'cell-mask-cell{cell_id}'
+        seg_name = f'mask-cell{cell_id}'
         add_data(seg_path, ds_name, seg_name, 'fibsem-segmentation')
 
         # add the organelle segmentations
@@ -57,7 +87,11 @@ def create_dataset(name):
             f'Plastid{cell_id}.nrrd',
 
         ]
+        organelle_paths = [os.path.join(root, name, f'Data{cell_id}/Segmented-files', pp)
+                           for pp in organelle_paths]
         organelle_names = ['coccolith', 'mitochondria', 'nucleus', 'plastid']
+        seg_name = f'organelles-cell{cell_id}'
+        add_segmentations(organelle_paths, organelle_names, ds_name, seg_name, 'fibsem-segmentation')
 
 
 def create_project():
