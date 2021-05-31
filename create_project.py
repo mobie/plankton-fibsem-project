@@ -5,13 +5,13 @@ import mobie
 import nrrd
 
 root = '/g/schwab/Kimberly/Publications/MoBIE_paper/Clarisse_project/raw'
-scale_factors = 5 * [[2, 2, 2]]
-chunks = (64,) * 3
+scale_factors = 4 * [[2, 2, 2]]
+chunks = (64, 64, 64)
 
 
 def copy_data(path, ds_name, name):
     data, header = nrrd.read(path, index_order='C')
-    vrange = (data.min(), data.max())
+    vrange = [data.min(), data.max()]
     print(vrange)
     resolution = np.diag(header['space directions'])[::-1] / 1000.
     tmp_path = f'./tmp_data/{ds_name}'
@@ -36,11 +36,10 @@ def add_data(path, ds_name, name, menu):
 
 def copy_segmentations(paths, ds_name, seg_name):
     data, header = nrrd.read(paths[0], index_order='C')
-    print(np.unique(data))
+    data = (data > 0).astype('uint32')
     resolution = np.diag(header['space directions'])[::-1] / 1000.
     for ii, path in enumerate(paths[1:], 2):
         this_data, _ = nrrd.read(paths[0], index_order='C')
-        print(np.unique(this_data))
         assert this_data.shape == data.shape
         data[this_data > 0] = ii
     tmp_path = f'./tmp_data/{ds_name}'
@@ -56,10 +55,10 @@ def copy_segmentations(paths, ds_name, seg_name):
 def add_segmentations(paths, class_names, ds_name, seg_name, menu):
     assert len(paths) == len(class_names)
     tmp_path, resolution = copy_segmentations(paths,  ds_name, seg_name)
-    mobie.add_segmentations(tmp_path, 'data', './data', ds_name,
-                            segmentation_name=seg_name, resolution=resolution,
-                            scale_factors=scale_factors, chunks=chunks,
-                            menu_name=menu, target='local', max_jobs=16)
+    mobie.add_segmentation(tmp_path, 'data', './data', ds_name,
+                           segmentation_name=seg_name, resolution=resolution,
+                           scale_factors=scale_factors, chunks=chunks,
+                           menu_name=menu, target='local', max_jobs=16)
     # TODO add semeantic column
 
 
@@ -68,16 +67,16 @@ def create_dataset(name):
     # for cell_id in (1, 2, 3):
     for cell_id in (1,):
 
-        # add the em data
-        raw_path = os.path.join(root, name, f'Data{cell_id}/Data{cell_id}.nrrd')
-        assert os.path.exists(raw_path), raw_path
-        raw_name = f'raw-cell{cell_id}'
-        add_data(raw_path, ds_name, raw_name, 'fibsem-raw')
+        # # add the em data
+        # raw_path = os.path.join(root, name, f'Data{cell_id}/Data{cell_id}.nrrd')
+        # assert os.path.exists(raw_path), raw_path
+        # raw_name = f'raw-cell{cell_id}'
+        # add_data(raw_path, ds_name, raw_name, 'fibsem-raw')
 
-        # add the cell mask
-        seg_path = os.path.join(root, name, f'Data{cell_id}/Segmented-files/Cell{cell_id}.nrrd')
-        seg_name = f'mask-cell{cell_id}'
-        add_data(seg_path, ds_name, seg_name, 'fibsem-segmentation')
+        # # add the cell mask
+        # seg_path = os.path.join(root, name, f'Data{cell_id}/Segmented-files/Cell{cell_id}.nrrd')
+        # seg_name = f'mask-cell{cell_id}'
+        # add_data(seg_path, ds_name, seg_name, 'fibsem-segmentation')
 
         # add the organelle segmentations
         organelle_paths = [
