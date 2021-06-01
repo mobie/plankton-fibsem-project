@@ -1,0 +1,13 @@
+{
+  "datasets": [
+    "emiliania",
+    "nanochloropsis",
+    "pelagomonas",
+    "symbiodinium",
+    "galdieria",
+    "micromonas",
+    "phaeodactylum"
+  ],
+  "defaultDataset": "emiliania",
+  "specVersion": "0.2.0"
+}
