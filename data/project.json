@@ -1,9 +1,9 @@
 {
   "datasets": [
-    "emiliania",
     "nanochloropsis",
     "pelagomonas",
     "symbiodinium",
+    "emiliania",
     "galdieria",
     "micromonas",
     "phaeodactylum"

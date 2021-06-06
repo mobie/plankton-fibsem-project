@@ -16,10 +16,24 @@
         "tableDataLocation": "tables/cell1-organelles"
       }
     },
+    "cell1-pyrenoid-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell1-pyrenoid-mask.xml"
+        }
+      }
+    },
     "cell1-raw": {
       "image": {
         "imageDataLocations": {
           "fileSystem": "images/local/cell1-raw.xml"
+        }
+      }
+    },
+    "cell1-starch-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell1-starch-mask.xml"
         }
       }
     },
@@ -38,10 +52,24 @@
         "tableDataLocation": "tables/cell2-organelles"
       }
     },
+    "cell2-pyrenoid-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell2-pyrenoid-mask.xml"
+        }
+      }
+    },
     "cell2-raw": {
       "image": {
         "imageDataLocations": {
           "fileSystem": "images/local/cell2-raw.xml"
+        }
+      }
+    },
+    "cell2-starch-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell2-starch-mask.xml"
         }
       }
     },
@@ -60,10 +88,24 @@
         "tableDataLocation": "tables/cell3-organelles"
       }
     },
+    "cell3-pyrenoid-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell3-pyrenoid-mask.xml"
+        }
+      }
+    },
     "cell3-raw": {
       "image": {
         "imageDataLocations": {
           "fileSystem": "images/local/cell3-raw.xml"
+        }
+      }
+    },
+    "cell3-starch-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell3-starch-mask.xml"
         }
       }
     }
@@ -78,7 +120,7 @@
             "color": "white",
             "contrastLimits": [
               0,
-              255
+              246
             ],
             "name": "raw",
             "opacity": 1.0,
@@ -116,6 +158,38 @@
               "cell3-organelles"
             ]
           }
+        },
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "pyrenoid-masks",
+            "opacity": 0.5,
+            "sources": [
+              "cell1-pyrenoid-mask",
+              "cell2-pyrenoid-mask",
+              "cell3-pyrenoid-mask"
+            ]
+          }
+        },
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "starch-masks",
+            "opacity": 0.5,
+            "sources": [
+              "cell1-starch-mask",
+              "cell2-starch-mask",
+              "cell3-starch-mask"
+            ]
+          }
         }
       ],
       "sourceTransforms": [
@@ -125,17 +199,23 @@
               [
                 "cell1-raw",
                 "cell1-mask",
-                "cell1-organelles"
+                "cell1-organelles",
+                "cell1-pyrenoid-mask",
+                "cell1-starch-mask"
               ],
               [
                 "cell2-raw",
                 "cell2-mask",
-                "cell2-organelles"
+                "cell2-organelles",
+                "cell2-pyrenoid-mask",
+                "cell2-starch-mask"
               ],
               [
                 "cell3-raw",
                 "cell3-mask",
-                "cell3-organelles"
+                "cell3-organelles",
+                "cell3-pyrenoid-mask",
+                "cell3-starch-mask"
               ]
             ],
             "tableDataLocation": "tables/all-cells"
@@ -172,6 +252,22 @@
       ],
       "uiSelectionGroup": "segmentation"
     },
+    "cell1-pyrenoid-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "opacity": 0.5
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
     "cell1-raw": {
       "isExclusive": false,
       "sourceDisplays": [
@@ -180,13 +276,29 @@
             "color": "white",
             "contrastLimits": [
               0,
-              255
+              246
             ],
             "opacity": 1.0
           }
         }
       ],
       "uiSelectionGroup": "fibsem"
+    },
+    "cell1-starch-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "opacity": 0.5
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
     },
     "cell2-mask": {
       "isExclusive": false,
@@ -224,6 +336,26 @@
       ],
       "uiSelectionGroup": "segmentation"
     },
+    "cell2-pyrenoid-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "cell2-pyrenoid-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cell2-pyrenoid-mask"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
     "cell2-raw": {
       "isExclusive": false,
       "sourceDisplays": [
@@ -243,6 +375,26 @@
         }
       ],
       "uiSelectionGroup": "fibsem"
+    },
+    "cell2-starch-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "cell2-starch-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cell2-starch-mask"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
     },
     "cell3-mask": {
       "isExclusive": false,
@@ -280,6 +432,26 @@
       ],
       "uiSelectionGroup": "segmentation"
     },
+    "cell3-pyrenoid-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "cell3-pyrenoid-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cell3-pyrenoid-mask"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
     "cell3-raw": {
       "isExclusive": false,
       "sourceDisplays": [
@@ -288,7 +460,7 @@
             "color": "white",
             "contrastLimits": [
               0,
-              255
+              253
             ],
             "name": "cell3-raw",
             "opacity": 1.0,
@@ -300,6 +472,26 @@
       ],
       "uiSelectionGroup": "fibsem"
     },
+    "cell3-starch-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "cell3-starch-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cell3-starch-mask"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
     "default": {
       "isExclusive": false,
       "sourceDisplays": [
@@ -308,7 +500,7 @@
             "color": "white",
             "contrastLimits": [
               0,
-              255
+              246
             ],
             "name": "cell1-raw",
             "opacity": 1.0,

@@ -9,6 +9,14 @@
         "tableDataLocation": "tables/cell-mask"
       }
     },
+    "cocolith-mask": {
+      "segmentation": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cocolith-mask.xml"
+        },
+        "tableDataLocation": "tables/cocolith-mask"
+      }
+    },
     "organelles": {
       "segmentation": {
         "imageDataLocations": {
@@ -37,6 +45,22 @@
             "opacity": 0.5,
             "sources": [
               "cell-mask"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
+    "cocolith-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "segmentationDisplay": {
+            "lut": "glasbey",
+            "name": "cocolith-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cocolith-mask"
             ]
           }
         }

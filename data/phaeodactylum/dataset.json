@@ -16,6 +16,13 @@
         "tableDataLocation": "tables/cell1-organelles"
       }
     },
+    "cell1-pyrenoid-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell1-pyrenoid-mask.xml"
+        }
+      }
+    },
     "cell1-raw": {
       "image": {
         "imageDataLocations": {
@@ -38,6 +45,13 @@
         "tableDataLocation": "tables/cell2-organelles"
       }
     },
+    "cell2-pyrenoid-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell2-pyrenoid-mask.xml"
+        }
+      }
+    },
     "cell2-raw": {
       "image": {
         "imageDataLocations": {
@@ -58,6 +72,13 @@
           "fileSystem": "images/local/cell3-organelles.xml"
         },
         "tableDataLocation": "tables/cell3-organelles"
+      }
+    },
+    "cell3-pyrenoid-mask": {
+      "image": {
+        "imageDataLocations": {
+          "fileSystem": "images/local/cell3-pyrenoid-mask.xml"
+        }
       }
     },
     "cell3-raw": {
@@ -94,10 +115,10 @@
             "color": "white",
             "contrastLimits": [
               0,
-              247
+              1
             ],
             "name": "cell-masks",
-            "opacity": 1.0,
+            "opacity": 0.5,
             "sources": [
               "cell1-mask",
               "cell2-mask",
@@ -109,11 +130,27 @@
           "segmentationDisplay": {
             "lut": "glasbey",
             "name": "organelles",
-            "opacity": 0.5,
+            "opacity": 0.25,
             "sources": [
               "cell1-organelles",
               "cell2-organelles",
               "cell3-organelles"
+            ]
+          }
+        },
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "pyrenoid-masks",
+            "opacity": 0.5,
+            "sources": [
+              "cell1-pyrenoid-mask",
+              "cell2-pyrenoid-mask",
+              "cell3-pyrenoid-mask"
             ]
           }
         }
@@ -125,17 +162,20 @@
               [
                 "cell1-raw",
                 "cell1-mask",
-                "cell1-organelles"
+                "cell1-organelles",
+                "cell1-pyrenoid-mask"
               ],
               [
                 "cell2-raw",
                 "cell2-mask",
-                "cell2-organelles"
+                "cell2-organelles",
+                "cell2-pyrenoid-mask"
               ],
               [
                 "cell3-raw",
                 "cell3-mask",
-                "cell3-organelles"
+                "cell3-organelles",
+                "cell3-pyrenoid-mask"
               ]
             ],
             "tableDataLocation": "tables/all-cells"
@@ -152,9 +192,9 @@
             "color": "white",
             "contrastLimits": [
               0,
-              247
+              1
             ],
-            "opacity": 1.0
+            "opacity": 0.5
           }
         }
       ],
@@ -166,6 +206,22 @@
         {
           "segmentationDisplay": {
             "lut": "glasbey",
+            "opacity": 0.25
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
+    "cell1-pyrenoid-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
             "opacity": 0.5
           }
         }
@@ -196,10 +252,10 @@
             "color": "white",
             "contrastLimits": [
               0,
-              255
+              1
             ],
             "name": "cell2-mask",
-            "opacity": 1.0,
+            "opacity": 0.5,
             "sources": [
               "cell2-mask"
             ]
@@ -215,9 +271,29 @@
           "segmentationDisplay": {
             "lut": "glasbey",
             "name": "cell2-organelles",
-            "opacity": 0.5,
+            "opacity": 0.25,
             "sources": [
               "cell2-organelles"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
+    "cell2-pyrenoid-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "cell2-pyrenoid-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cell2-pyrenoid-mask"
             ]
           }
         }
@@ -252,10 +328,10 @@
             "color": "white",
             "contrastLimits": [
               0,
-              205
+              1
             ],
             "name": "cell3-mask",
-            "opacity": 1.0,
+            "opacity": 0.5,
             "sources": [
               "cell3-mask"
             ]
@@ -271,9 +347,29 @@
           "segmentationDisplay": {
             "lut": "glasbey",
             "name": "cell3-organelles",
-            "opacity": 0.5,
+            "opacity": 0.25,
             "sources": [
               "cell3-organelles"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
+    "cell3-pyrenoid-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              1
+            ],
+            "name": "cell3-pyrenoid-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cell3-pyrenoid-mask"
             ]
           }
         }
