@@ -318,5 +318,5 @@ def create_merged_project():
 
 # TODO add metadata for the remote s3 store and upload it
 if __name__ == '__main__':
-    # create_merged_project()
+    create_merged_project()
     create_split_project()

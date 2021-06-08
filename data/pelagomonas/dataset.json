@@ -1,0 +1,117 @@
+{
+  "is2D": false,
+  "sources": {
+    "cell-mask": {
+      "segmentation": {
+        "imageData": {
+          "bdv.n5": {
+            "relativePath": "images/bdv.n5/cell-mask.xml"
+          }
+        },
+        "tableData": {
+          "tsv": {
+            "relativePath": "tables/cell-mask"
+          }
+        }
+      }
+    },
+    "organelles": {
+      "segmentation": {
+        "imageData": {
+          "bdv.n5": {
+            "relativePath": "images/bdv.n5/organelles.xml"
+          }
+        },
+        "tableData": {
+          "tsv": {
+            "relativePath": "tables/organelles"
+          }
+        }
+      }
+    },
+    "raw": {
+      "image": {
+        "imageData": {
+          "bdv.n5": {
+            "relativePath": "images/bdv.n5/raw.xml"
+          }
+        }
+      }
+    }
+  },
+  "timepoints": 1,
+  "views": {
+    "cell-mask": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "segmentationDisplay": {
+            "lut": "glasbey",
+            "name": "cell-mask",
+            "opacity": 0.5,
+            "sources": [
+              "cell-mask"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
+    "default": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              255
+            ],
+            "name": "raw",
+            "opacity": 1.0,
+            "sources": [
+              "raw"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "bookmark"
+    },
+    "organelles": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "segmentationDisplay": {
+            "lut": "glasbey",
+            "name": "organelles",
+            "opacity": 0.5,
+            "sources": [
+              "organelles"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "segmentation"
+    },
+    "raw": {
+      "isExclusive": false,
+      "sourceDisplays": [
+        {
+          "imageDisplay": {
+            "color": "white",
+            "contrastLimits": [
+              0,
+              255
+            ],
+            "name": "raw",
+            "opacity": 1.0,
+            "sources": [
+              "raw"
+            ]
+          }
+        }
+      ],
+      "uiSelectionGroup": "fibsem"
+    }
+  }
+}

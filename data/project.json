@@ -1,0 +1,16 @@
+{
+  "datasets": [
+    "emiliania",
+    "nanochloropsis",
+    "pelagomonas",
+    "symbiodinium",
+    "galdieria",
+    "micromonas",
+    "phaeodactylum"
+  ],
+  "defaultDataset": "emiliania",
+  "imageDataFormats": [
+    "bdv.n5"
+  ],
+  "specVersion": "0.2.0"
+}
