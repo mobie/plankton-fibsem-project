@@ -5,7 +5,10 @@
       "segmentation": {
         "imageData": {
           "bdv.n5": {
-            "relativePath": "images/bdv.n5/cell-mask.xml"
+            "relativePath": "images/bdv-n5/cell-mask.xml"
+          },
+          "bdv.n5.s3": {
+            "relativePath": "images/bdv-n5-s3/cell-mask.xml"
           }
         },
         "tableData": {
@@ -19,7 +22,10 @@
       "segmentation": {
         "imageData": {
           "bdv.n5": {
-            "relativePath": "images/bdv.n5/cocolith-mask.xml"
+            "relativePath": "images/bdv-n5/cocolith-mask.xml"
+          },
+          "bdv.n5.s3": {
+            "relativePath": "images/bdv-n5-s3/cocolith-mask.xml"
           }
         },
         "tableData": {
@@ -33,7 +39,10 @@
       "segmentation": {
         "imageData": {
           "bdv.n5": {
-            "relativePath": "images/bdv.n5/organelles.xml"
+            "relativePath": "images/bdv-n5/organelles.xml"
+          },
+          "bdv.n5.s3": {
+            "relativePath": "images/bdv-n5-s3/organelles.xml"
           }
         },
         "tableData": {
@@ -47,7 +56,10 @@
       "image": {
         "imageData": {
           "bdv.n5": {
-            "relativePath": "images/bdv.n5/raw.xml"
+            "relativePath": "images/bdv-n5/raw.xml"
+          },
+          "bdv.n5.s3": {
+            "relativePath": "images/bdv-n5-s3/raw.xml"
           }
         }
       }
