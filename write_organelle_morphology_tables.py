@@ -44,6 +44,4 @@ def write_morphology_tables(project_folder_path, table_path):
 
 
 if __name__ == '__main__':
-    # project_folder = "C:\\Users\\meechan\\Documents\\Repos\\plankton-fibsem-project"
-    # full_table = "C:\\Users\\meechan\\Documents\\collated_plankton_data.tsv"
-    write_morphology_tables('.', './misc/collated_plankton_data.tsv')
+    write_morphology_tables('.', './misc/collated_plankton_organelle_data.tsv')
