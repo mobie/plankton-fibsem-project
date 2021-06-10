@@ -77,6 +77,9 @@
             "opacity": 0.5,
             "sources": [
               "cell-mask"
+            ],
+            "tables": [
+              "default.tsv"
             ]
           }
         }
@@ -93,6 +96,9 @@
             "opacity": 0.5,
             "sources": [
               "cocolith-mask"
+            ],
+            "tables": [
+              "default.tsv"
             ]
           }
         }
@@ -129,6 +135,9 @@
             "opacity": 0.5,
             "sources": [
               "organelles"
+            ],
+            "tables": [
+              "default.tsv"
             ]
           }
         }
