@@ -99,7 +99,7 @@ def add_segmentations(paths, class_names, ds_name, seg_name, menu, opacity=0.5):
     # add semantic column
     table_path = f'./data/{ds_name}/tables/{seg_name}/default.tsv'
     assert os.path.exists(table_path)
-    table = pd.read_csv(table_path)
+    table = pd.read_csv(table_path, sep='\t')
     table["organelle"] = class_names
     table.to_csv(table_path, sep='\t', index=False)
 
@@ -278,7 +278,7 @@ def add_merged_organelles(name, ds_name):
     # add columns
     table_path = f'./data/{ds_name}/tables/{seg_name}/default.tsv'
     assert os.path.exists(table_path)
-    table = pd.read_csv(table_path)
+    table = pd.read_csv(table_path, sep='\t')
     table["cell_id"] = ids_to_cells
     table["organelle"] = ids_to_organelles
     table.to_csv(table_path, sep='\t', index=False)
