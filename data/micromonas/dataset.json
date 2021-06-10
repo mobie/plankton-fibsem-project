@@ -314,7 +314,8 @@
               }
             },
             "tables": [
-              "default.tsv"
+              "default.tsv",
+              "morphology.tsv"
             ]
           }
         }
