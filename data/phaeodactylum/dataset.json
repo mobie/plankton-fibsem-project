@@ -228,11 +228,46 @@
               "cell3-pyrenoid-mask"
             ]
           }
+        },
+        {
+          "sourceAnnotationDisplay": {
+            "lut": "glasbey",
+            "name": "all-cells",
+            "opacity": 0.5,
+            "sources": {
+              "0": [
+                "cell1-raw",
+                "cell1-mask",
+                "cell1-organelles",
+                "cell1-pyrenoid-mask"
+              ],
+              "1": [
+                "cell2-raw",
+                "cell2-mask",
+                "cell2-organelles",
+                "cell2-pyrenoid-mask"
+              ],
+              "2": [
+                "cell3-raw",
+                "cell3-mask",
+                "cell3-organelles",
+                "cell3-pyrenoid-mask"
+              ]
+            },
+            "tableData": {
+              "tsv": {
+                "relativePath": "tables/all-cells"
+              }
+            },
+            "tables": [
+              "default.tsv"
+            ]
+          }
         }
       ],
       "sourceTransforms": [
         {
-          "grid": {
+          "transformedGrid": {
             "sources": [
               [
                 "cell1-raw",
@@ -252,15 +287,6 @@
                 "cell3-organelles",
                 "cell3-pyrenoid-mask"
               ]
-            ],
-            "tableData": {
-              "tsv": {
-                "relativePath": "tables/all-cells"
-              }
-            },
-            "tables": [
-              "default.tsv",
-              "morphology.tsv"
             ]
           }
         }

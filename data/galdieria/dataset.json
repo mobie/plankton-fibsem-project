@@ -176,11 +176,43 @@
               "default.tsv"
             ]
           }
+        },
+        {
+          "sourceAnnotationDisplay": {
+            "lut": "glasbey",
+            "name": "all-cells",
+            "opacity": 0.5,
+            "sources": {
+              "0": [
+                "cell1-raw",
+                "cell1-mask",
+                "cell1-organelles"
+              ],
+              "1": [
+                "cell2-raw",
+                "cell2-mask",
+                "cell2-organelles"
+              ],
+              "2": [
+                "cell3-raw",
+                "cell3-mask",
+                "cell3-organelles"
+              ]
+            },
+            "tableData": {
+              "tsv": {
+                "relativePath": "tables/all-cells"
+              }
+            },
+            "tables": [
+              "default.tsv"
+            ]
+          }
         }
       ],
       "sourceTransforms": [
         {
-          "grid": {
+          "transformedGrid": {
             "sources": [
               [
                 "cell1-raw",
@@ -197,15 +229,6 @@
                 "cell3-mask",
                 "cell3-organelles"
               ]
-            ],
-            "tableData": {
-              "tsv": {
-                "relativePath": "tables/all-cells"
-              }
-            },
-            "tables": [
-              "default.tsv",
-              "morphology.tsv"
             ]
           }
         }
