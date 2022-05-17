@@ -1,4 +1,4 @@
-annotation_id	cell	volume_micron_cubed	surface_area_micron_squared
+region_id	cell	volume_micron_cubed	surface_area_micron_squared
 0	1	2.38	11.164
 1	2	1.099	6.731
 2	3	1.43	7.127000000000002
