@@ -178,7 +178,7 @@
           }
         },
         {
-          "sourceAnnotationDisplay": {
+          "regionDisplay": {
             "lut": "glasbey",
             "name": "all-cells",
             "opacity": 0.5,
@@ -213,7 +213,7 @@
       "sourceTransforms": [
         {
           "transformedGrid": {
-            "sources": [
+            "nestedSources": [
               [
                 "cell1-raw",
                 "cell1-mask",
