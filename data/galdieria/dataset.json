@@ -2,7 +2,7 @@
   "is2D": false,
   "sources": {
     "all-cells": {
-      "regionTable": {
+      "regions": {
         "tableData": {
           "tsv": {
             "relativePath": "tables/all-cells"
