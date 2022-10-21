@@ -48,7 +48,6 @@
       }
     }
   },
-  "timepoints": 1,
   "views": {
     "cell-mask": {
       "isExclusive": false,
