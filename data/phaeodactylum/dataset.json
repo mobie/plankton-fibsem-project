@@ -1,6 +1,15 @@
 {
   "is2D": false,
   "sources": {
+    "all-cells": {
+      "regions": {
+        "tableData": {
+          "tsv": {
+            "relativePath": "tables/all-cells"
+          }
+        }
+      }
+    },
     "cell1-mask": {
       "image": {
         "imageData": {
@@ -161,7 +170,6 @@
       }
     }
   },
-  "timepoints": 1,
   "views": {
     "all-cells": {
       "isExclusive": true,
@@ -207,9 +215,6 @@
               "cell1-organelles",
               "cell2-organelles",
               "cell3-organelles"
-            ],
-            "tables": [
-              "default.tsv"
             ]
           }
         },
@@ -254,14 +259,7 @@
                 "cell3-pyrenoid-mask"
               ]
             },
-            "tableData": {
-              "tsv": {
-                "relativePath": "tables/all-cells"
-              }
-            },
-            "tables": [
-              "default.tsv"
-            ]
+            "tableSource": "all-cells"
           }
         }
       ],
@@ -323,9 +321,6 @@
             "opacity": 0.25,
             "sources": [
               "cell1-organelles"
-            ],
-            "tables": [
-              "default.tsv"
             ]
           }
         }
@@ -402,9 +397,6 @@
             "opacity": 0.25,
             "sources": [
               "cell2-organelles"
-            ],
-            "tables": [
-              "default.tsv"
             ]
           }
         }
@@ -481,9 +473,6 @@
             "opacity": 0.25,
             "sources": [
               "cell3-organelles"
-            ],
-            "tables": [
-              "default.tsv"
             ]
           }
         }
